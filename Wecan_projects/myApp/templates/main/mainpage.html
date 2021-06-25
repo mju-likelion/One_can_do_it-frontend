@@ -6,18 +6,88 @@
 	<title>Main</title>
 
 	<style>
-		/* 브라우저 마진과 패딩 리셋 */
-		* {margin:0;padding:0;}
+		.market_drop_btn{
+			background-color: white;
+			color: black;
+			padding: 20px;
+			font-size: 20px;
+			border: none;
+		}
+		.market_dropdown{
+			position: relative;
+			display: inline-block;
+		}
+		.market_category{
+			display: none;
+			position: absolute;
+			background-color: #E6E6E6;
+			width: 200px;
+			z-index: 1;
+		}
+		.market_category a{
+			color: black;
+			padding: 20px;
+			text-decoration: none;
+			display: block;
+		}
+		.market_category a:hover{
+			background-color: #E6E6E6;
+		}
+		.market_dropdown:hover .market_category{
+			display: block;
+		}
+		.market_dropdown:hover .market_drop_btn{
+			background-color: #E6E6E6;
+		}
+		.com_drop_btn{
+			background-color: white;
+			color: black;
+			padding: 20px;
+			font-size: 20px;
+			border: none;
+		}
+		.com_dropdown{
+			position: relative;
+			display: inline-block;
+		}
+		.com_category{
+			display: none;
+			position: absolute;
+			background-color: #E6E6E6;
+			width: 200px;
+			z-index: 1;
+		}
+		.com_category a{
+			color: black;
+			padding: 20px;
+			text-decoration: none;
+			display: block;
+		}
+		.com_category a:hover{
+			background-color: #E6E6E6;
+		}
+		.com_dropdown:hover .com_category{
+			display: block;
+		}
+		.com_dropdown:hover .com_drop_btn{
+			background-color: #E6E6E6;
+		}
 
+		/* 브라우저 마진과 패딩 리셋 */
+		* {
+			margin:0;
+			padding:0;
+		}
 		/* INPUT 가리기 */
-		.section [id*="slide"] {display:none;}
-		
+		.section [id*="slide"] {
+			display:none;
+		}
 		/* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
 		.section .slide_wrap {
 			max-width:1680px;
       max-height: 566px;
 			margin:0 auto;
-      top: 250px;
+      top: 40px;
 			overflow:hidden;
 			position:relative;
 		}
@@ -36,7 +106,6 @@
 			position:relative;
       width: 100%;
 		}
-
 		/* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
 		.section .slide_control {
 			position:absolute;
@@ -65,7 +134,6 @@
 		.section .slide_control [class*="control"] {
 			display:none;
 		}
-
 		/* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
 		.section [id="slide01"]:checked ~ .slide_wrap .slide_list > li {
 			transform:translateX(0%);
@@ -76,7 +144,6 @@
 		.section [id="slide03"]:checked ~ .slide_wrap .slide_list > li {
 			transform:translateX(-200%);
 		}
-		
 		/*  INPUT이 체크되면 변화값이 좌우 슬라이드 버튼을 담고 있는 div 까지 전달되는 스타일 */
 		.section [id="slide01"]:checked ~ .slide_wrap .control01 {
 			display:block;
@@ -90,44 +157,74 @@
 	</style>
 </head>
 <body>
-<div class="section">
-	<input type="radio" name="slide" id="slide01" checked>
-	<input type="radio" name="slide" id="slide02">
-	<input type="radio" name="slide" id="slide03">
-	<div class="slide_wrap">
-		<ul class="slide_list">
-			<li>
-				<a>
-					<img src="./img/slide03.jpeg">
-				</a>
-			</li>
-			<li>
-				<a>
-					<img src="./img/slide03.jpeg">
-				</a>
-			</li>
-			<li>
-				<a>
-					<img src="./img/slide03.jpeg">
-				</a>
-			</li>
-		</ul>
+	<!-- 마켓/커뮤니티 드롭다운 카테고리 -->
+	<div class="market_dropdown">
+		<button class="market_drop_btn">
+			원캔 마켓
+		</button>
+		<div class="market_category">
+			<a href="#">베스트 상품</a>
+			<a href="#">세일 상품</a>
+			<a href="#">채소/과일</a>
+			<a href="#">수산/해산</a>
+			<a href="#">정육/계란</a>
+			<a href="#">유제품</a>
+			<a href="#">음료/생수</a>
+			<a href="#">생활 필수품</a>_
+		</div>
+	</div>
+	<div class="com_dropdown">
+		<button class="com_drop_btn">
+			원캔 커뮤니티
+		</button>
+		<div class="com_category">
+			<a href="#">레시피</a>
+			<a href="#">물물교환</a>
+		</div>
+	</div>
+	<!-- 슬라이드 배너 -->
+	<div class="section">
+		<input type="radio" name="slide" id="slide01" checked>
+		<input type="radio" name="slide" id="slide02">
+		<input type="radio" name="slide" id="slide03">
+		<div class="slide_wrap">
+			<ul class="slide_list">
+				<li>
+					<a>
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+			</ul>
 
-		<div class="slide_control">
-			<div class="control01">
-				<label for="slide03" class="left"></label>
-				<label for="slide02" class="right"></label>
-			</div>
-			<div class="control02">
-				<label for="slide01" class="left"></label>
-				<label for="slide03" class="right"></label>
-			</div>
-			<div class="control03">
-				<label for="slide02" class="left"></label>
-				<label for="slide01" class="right"></label>
+			<div class="slide_control">
+				<div class="control01">
+					<label for="slide03" class="left"></label>
+					<label for="slide02" class="right"></label>
+				</div>
+				<div class="control02">
+					<label for="slide01" class="left"></label>
+					<label for="slide03" class="right"></label>
+				</div>
+				<div class="control03">
+					<label for="slide02" class="left"></label>
+					<label for="slide01" class="right"></label>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	<!-- 베스트 상품 -->
+	<!-- 레시피 -->
+	<!-- 세일 상품 -->
+	<!-- 물물교환 -->
 </body>
 </html>
