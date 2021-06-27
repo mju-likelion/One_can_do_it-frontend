@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <title>물물교환 작성페이지</title>
 </head>
 <style>
@@ -81,7 +84,60 @@
         font-size: 30px;
     }
 
-    /* 파일업로드 커스텀 */
+    /* 파일 커스텀 */
+    .filebox {
+        margin-top: 30px;
+    }
+
+    .filebox input[type="file"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .filebox label {
+        display: inline-block;
+        padding: .5em .75em;
+        color: #999;
+        font-size: inherit;
+        line-height: normal;
+        vertical-align: middle;
+        cursor: pointer;
+        border: none;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+
+    }
+
+    /* named upload */
+    .filebox .upload_name {
+        display: inline;
+        text-align: left;
+        /* label의 패딩값과 일치 */
+        line-height: normal;
+        vertical-align: middle;
+        background-color: #fff;
+        border: none;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        -webkit-appearance: none;
+        /* 네이티브 외형 감추기 */
+        -moz-appearance: none;
+        appearance: none;
+        font-size: 20px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+    }
+
+    .filebox .file_img {
+        width: 45px;
+        height: 42px;
+    }
 
     .bater_footer {
         height: 94.93px;
@@ -114,9 +170,12 @@
                                 style="resize: none;"></textarea>
                         </div>
                     </div>
-                    <div class="file_upload">
-                        <input type="file" name="file_info">
+                    <div class="filebox">
+                        <input class="upload_name" value="파 일 선 택" disabled="disabled">
+                        <label for="ex_filename"><img src="./img/fileimg.png" alt="파일업로" class="file_img"></label>
+                        <input type="file" id="ex_filename" class="upload_hidden">
                     </div>
+
                     <div class="btn_list">
                         <input type="button" name="btn_success" value="완료">
                         <input type="button" name="btn_delete" value="삭제">

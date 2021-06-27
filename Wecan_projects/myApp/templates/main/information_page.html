@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <title>이용안내</title>
 </head>
 <style>
@@ -19,32 +22,93 @@
     }
 
     .contents {
-        width: 877.88px;
         margin: 0 auto;
-        border: 1px solid blue;
     }
 
     .contents .title_list {
         width: 877.88px;
-        height: 179.03px;
+        margin: 0 auto;
+        font-family: 'Montserrat';
     }
 
     .contents .title_list .title_one {
-        height: 59.03px;
         text-align: center;
-        box-sizing: border-box;
-        /* 제목 배치 추가 */
+    }
+
+    .contents .title_list .title_one h1 {
+        margin-bottom: 0;
+        margin-right: 70px;
+        font-size: 64px;
+        line-height: 3;
     }
 
     .contents .title_list .title_two {
-        height: 59.03px;
         text-align: center;
-        box-sizing: border-box;
     }
 
-    .service_document {}
+    .contents .title_list .title_two h1 {
+        margin-top: 0;
+        margin-left: 50px;
+        font-size: 64px;
+    }
 
-    .bater_footer {
+    /* 이용약관 */
+    .service_document h2 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 50px;
+    }
+
+    /* 이용약관 리스트 */
+    .market {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+
+    .market .market_service {
+        width: 800px;
+        height: 349px;
+        background-color: #F4F5F4;
+        border-radius: 10px;
+    }
+
+    .community {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+
+
+    .service_name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 349px;
+    }
+
+    .community_service {
+        width: 800px;
+        height: 349px;
+        background-color: #F4F5F4;
+        border-radius: 10px;
+    }
+
+    .utilize {
+        display: flex;
+        justify-content: center;
+    }
+
+    .utilize_service {
+        width: 800px;
+        height: 349px;
+        background-color: #F4F5F4;
+        border-radius: 10px;
+    }
+
+    /* footer */
+    .barter_footer {
         height: 94.93px;
         border: 1px solid red;
         margin-top: 249px;
@@ -60,9 +124,6 @@
         </header>
 
         <main>
-            <div class="title">
-                <h1>레시피 작성</h1>
-            </div>
             <div class="contents">
                 <div class="title_list">
                     <div class="title_one">
@@ -74,26 +135,39 @@
                 </div>
 
                 <div class="service_document">
-                    <h2>이용 약관</h2>
+                    <h2>
+                        <이용 약관>
+                    </h2>
                 </div>
 
-                <h2>마켓</h2>
-                <div class="market_service">
-                    <p>마켓 이용 약관</p>
-                </div>
-                <h2>커뮤니티</h2>
-                <div class="community_service">
-                    <p>커뮤니티 이용 약관</p>
-                </div>
-                <h2>이용 관련 법률</h2>
-                <div class="utilize_service">
-                    <p>이용 관련 법률</p>
+                <div class="service_wrap">
+                    <div class="market">
+                        <div class="service_name">
+                            <h2>마켓</h2>
+                        </div>
+                        <div class="market_service">
+                        </div>
+                    </div>
+                    <div class="community">
+                        <div class="service_name">
+                            <h2>커뮤니티</h2>
+                        </div>
+                        <div class="community_service">
+                        </div>
+                    </div>
+                    <div class="utilize">
+                        <div class="service_name">
+                            <h2>이용 관련 법률</h2>
+                        </div>
+                        <div class="utilize_service">
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
 
         <footer>
-            <div class="bater_footer">
+            <div class="barter_footer">
                 <p>푸터</p>
             </div>
         </footer>
