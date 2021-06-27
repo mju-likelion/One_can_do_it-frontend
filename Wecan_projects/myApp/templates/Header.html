@@ -1,1 +1,94 @@
-<h1>헤더</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+</head>
+<style>
+
+    #header {
+        background: #31572E;
+        height: 70px;
+    }
+
+    .wrapper {
+        width: 100%;
+        min-height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .lists {
+        display: flex;
+        margin-left: 234%;
+        margin-top: 13%;
+        width: 250px;
+    }
+
+    .lists li {
+        margin-right: 20px;
+        
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 22px;
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: -0.015em;
+    }
+
+    .lists a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .title {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 3.5rem;
+        line-height: 125%;
+
+        text-align: center;
+        letter-spacing: 0.3em;
+
+        margin-top: auto;
+        margin-left: 2%;
+
+        color: #000000;
+        width: 712px;
+    }
+
+    .text {
+        float: right;
+        padding: 6px;
+        border: none;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+    }
+
+</style>
+<body>
+    <section id="header">
+        <div class="wrapper">
+            <header>
+                <square></square>
+                <nav>
+                    <ul class="lists">
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">F&Q</a></li>
+                    </ul>
+                </nav>
+                <div class="title">One can do it!</div>
+                <input type="text" placeholder="Search..">
+            </header>
+        </div>
+    </section>
+</body>
+
+</html>

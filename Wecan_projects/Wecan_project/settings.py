@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Wecan_projects.urls'
+ROOT_URLCONF = 'Wecan_project.urls'
 
 TEMPLATES = [
     {
