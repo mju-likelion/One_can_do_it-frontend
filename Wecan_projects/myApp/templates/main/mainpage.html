@@ -4,13 +4,14 @@
 	<meta charset='utf-8'>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title>Main</title>
-
+	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 	<style>
 		.market_drop_btn{
 			background-color: white;
 			color: black;
 			padding: 20px;
-			font-size: 20px;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 25px;
 			border: none;
 		}
 		.market_dropdown{
@@ -43,7 +44,8 @@
 			background-color: white;
 			color: black;
 			padding: 20px;
-			font-size: 20px;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 25px;
 			border: none;
 		}
 		.com_dropdown{
@@ -85,7 +87,7 @@
 		/* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
 		.section .slide_wrap {
 			max-width:1680px;
-      max-height: 566px;
+      max-height: 500px;
 			margin:0 auto;
       top: 40px;
 			overflow:hidden;
@@ -153,6 +155,38 @@
 		}
 		.section [id="slide03"]:checked ~ .slide_wrap .control03 {
 			display:block;
+		}
+		.best_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 60px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.recipe_title{
+			padding: 10px;
+			margin-left: 120px;
+			margin-top: 30px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.sale_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 40px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.change_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 40px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.thumbnail{
+			border-radius: 100%;
+			margin-bottom: 40px;
+		}
+		.recipe_img{
+			width: 600px;
+			height: 300px;
 		}
 	</style>
 </head>
@@ -223,8 +257,44 @@
 		</div>
 	</div>
 	<!-- 베스트 상품 -->
+	<h2 class="best_title">Best</h2>
+	<div class="row small-up-2 large-up-4">
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+	</div>
 	<!-- 레시피 -->
+	<h2 class="recipe_title">Recipe</h2>
+	<div class="row small-up-2 large-up-4">
+		<div class="column">
+			<img class="recipe_img" src="./img/recipe.png">
+			<h4>레시피이름</h4>
+		</div>
+		<div class="column">
+			<img class="recipe_img" src="./img/recipe.png">
+			<h4>레시피이름</h4>
+		</div>
+	</div>
 	<!-- 세일 상품 -->
+	<h2 class="sale_title">Sale</h2>
 	<!-- 물물교환 -->
+	<h2 class="change_title">물물교환</h2>
 </body>
 </html>
