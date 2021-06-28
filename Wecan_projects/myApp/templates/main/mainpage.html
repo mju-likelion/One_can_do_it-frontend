@@ -45,7 +45,7 @@
 			background-color: white;
 			color: black;
 			padding: 20px;
-			font-family: 'Courier New', Courier, monospace;
+			font-family: Montserrat;
 			font-size: 25px;
 			border: none;
 			font-family: Montserrat;
@@ -88,10 +88,10 @@
 		}
 		/* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
 		.section .slide_wrap {
-			max-width:1680px;
+			max-width:100%;
       max-height: 500px;
 			margin:0 auto;
-      top: 40px;
+      top: 110px;
 			overflow:hidden;
 			position:relative;
 		}
@@ -161,26 +161,26 @@
 		.best_title{
 			padding: 30px;
 			margin-left: 100px;
-			margin-top: 60px;
-			font-family:'Courier New', Courier, monospace;
+			margin-top: 100px;
+			font-family: Montserrat;
 		}
 		.recipe_title{
 			padding: 10px;
 			margin-left: 120px;
 			margin-top: 30px;
-			font-family:'Courier New', Courier, monospace;
+			font-family: Montserrat;
 		}
 		.sale_title{
 			padding: 30px;
 			margin-left: 100px;
 			margin-top: 40px;
-			font-family:'Courier New', Courier, monospace;
+			font-family: Montserrat;
 		}
 		.change_title{
 			padding: 30px;
 			margin-left: 100px;
 			margin-top: 40px;
-			font-family:'Courier New', Courier, monospace;
+			font-family: Montserrat;
 		}
 		.thumbnail{
 			border-radius: 100%;
@@ -190,10 +190,73 @@
 			width: 600px;
 			height: 300px;
 		}
+		#footer {
+        background: white;
+    }
 
+    .name {
+        font-family: Montserrat;
+        color: #000000;
+        font-size: 1.5rem;
+
+        font-style: normal;
+        font-weight: normal;
+        line-height: 125%;
+
+        text-align: center;
+        letter-spacing: 0.3em;
+
+        color: #000000;
+
+        position: absolute;
+        margin-left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .footer_lists {
+        display: flex;
+        width: 550px;
+        height: 95px;
+    }
+
+    .footer_lists li {
+        margin-right: 20px;
+        
+        font-family: Montserrat;
+        font-size: 1rem;
+        font-weight: bolder;
+        line-height: 22px;
+
+        display: flex;
+        letter-spacing: -0.015em;
+
+        transform: translate(-50%, -50%);
+        
+        margin-left: auto;
+        margin-top: 13%;
+        margin-right: 19%;
+    }
+
+    .footer_lists a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .email {
+        margin-left: 1%;
+        margin-top: 0%;
+    }
+
+    .line {
+        margin-top: -15px;
+        margin-bottom: 13px;
+    }
 	</style>
 </head>
 <body>
+	<!-- 헤더 -->
+
 	<!-- 마켓/커뮤니티 드롭다운 카테고리 -->
 	<div class="market_dropdown">
 		<button class="market_drop_btn">
@@ -299,5 +362,22 @@
 	<h2 class="sale_title">Sale</h2>
 	<!-- 물물교환 -->
 	<h2 class="change_title">물물교환</h2>
+	<!-- 푸터 -->
+	<section id="FooterContainer">
+		<div class="FirstFooter">
+				<footer>
+						<h1 class="name">One can do it!</h1>
+						<nav>
+								<ul class="footer_lists">
+										<li><a href="#">이용약관</a></li>
+										<li><a href="#">이용안내</a></li>
+										<li><a href="#">입점문의</a></li>
+								</ul>
+								<hr class="line" style="border: soild 2px black;">
+								<p class="email">E-mail</p>
+						</nav>
+				</footer>
+		</div>
+</section>
 </body>
 </html>
