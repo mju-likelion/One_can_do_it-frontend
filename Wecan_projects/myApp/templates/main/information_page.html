@@ -108,10 +108,67 @@
     }
 
     /* footer */
-    .barter_footer {
-        height: 94.93px;
-        border: 1px solid red;
-        margin-top: 249px;
+    #footer {
+        background: white;
+    }
+
+    .name {
+        font-family: Montserrat;
+        color: #000000;
+        font-size: 1.5rem;
+
+        font-style: normal;
+        font-weight: normal;
+        line-height: 125%;
+
+        text-align: center;
+        letter-spacing: 0.3em;
+
+        color: #000000;
+
+        position: absolute;
+        margin-left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .lists {
+        display: flex;
+        width: 550px;
+        height: 95px;
+    }
+
+    .lists li {
+        margin-right: 20px;
+
+        font-family: Montserrat;
+        font-size: 1rem;
+        font-weight: bolder;
+        line-height: 22px;
+
+        display: flex;
+        letter-spacing: -0.015em;
+
+        transform: translate(-50%, -50%);
+
+        margin-left: auto;
+        margin-top: 13%;
+        margin-right: 19%;
+    }
+
+    .lists a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .email {
+        margin-left: 1%;
+        margin-top: 0%;
+    }
+
+    .line {
+        margin-top: -15px;
+        margin-bottom: 13px;
     }
 </style>
 
@@ -167,9 +224,16 @@
         </main>
 
         <footer>
-            <div class="barter_footer">
-                <p>푸터</p>
-            </div>
+            <h1 class="name">One can do it!</h1>
+            <nav>
+                <ul class="lists">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">입점문의</a></li>
+                </ul>
+                <hr class="line" style="border: soild 2px black;">
+                <p class="email">E-mail</p>
+            </nav>
         </footer>
     </div>
 </body>
