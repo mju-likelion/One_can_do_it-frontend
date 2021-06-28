@@ -1,0 +1,668 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Main</title>
+	<style>
+		.market_drop_btn{
+			background-color: white;
+			color: black;
+			padding: 20px;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 25px;
+			border: none;
+			font-family: Montserrat;
+		}
+		.market_dropdown{
+			position: relative;
+			display: inline-block;
+		}
+		.market_category{
+			display: none;
+			position: absolute;
+			background-color: #E6E6E6;
+			width: 200px;
+			z-index: 1;
+		}
+		.market_category a{
+			color: black;
+			padding: 20px;
+			text-decoration: none;
+			display: block;
+		}
+		.market_category a:hover{
+			background-color: #E6E6E6;
+		}
+		.market_dropdown:hover .market_category{
+			display: block;
+		}
+		.market_dropdown:hover .market_drop_btn{
+			background-color: #E6E6E6;
+		}
+		.com_drop_btn{
+			background-color: white;
+			color: black;
+			padding: 20px;
+			font-family: Montserrat;
+			font-size: 25px;
+			border: none;
+			font-family: Montserrat;
+		}
+		.com_dropdown{
+			position: relative;
+			display: inline-block;
+		}
+		.com_category{
+			display: none;
+			position: absolute;
+			background-color: #E6E6E6;
+			width: 200px;
+			z-index: 1;
+		}
+		.com_category a{
+			color: black;
+			padding: 20px;
+			text-decoration: none;
+			display: block;
+		}
+		.com_category a:hover{
+			background-color: #E6E6E6;
+		}
+		.com_dropdown:hover .com_category{
+			display: block;
+		}
+		.com_dropdown:hover .com_drop_btn{
+			background-color: #E6E6E6;
+		}
+
+		/* 브라우저 마진과 패딩 리셋 */
+		* {
+			margin:0;
+			padding:0;
+		}
+		/* INPUT 가리기 */
+		.section [id*="slide"] {
+			display:none;
+		}
+		/* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+		.section .slide_wrap {
+			max-width:100%;
+      max-height: 500px;
+			margin:0 auto;
+      top: 110px;
+			overflow:hidden;
+			position:relative;
+		}
+		.section .slide_list {
+			white-space:nowrap;
+			font-size:0;
+		}
+		.section .slide_list > li {
+			display:inline-block;
+			vertical-align:middle;
+			width:100%;
+			transition:all .5s;
+		}
+		.section .slide_list > li > a {
+			display:block;
+			position:relative;
+      width: 100%;
+		}
+		/* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+		.section .slide_control {
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:10;
+			width:100%;
+			height:100%;
+		}
+		.section .slide_control label {
+			position:absolute;
+			z-index:1;
+			top:50%;
+			transform:translateY(-50%);
+			padding:50px;
+			cursor:pointer;
+		}
+		.section .slide_control .left {
+			left:30px;
+			background:url('./img/left.png') center center / 100% no-repeat;
+		}
+		.section .slide_control .right {
+			right:30px;
+			background:url('./img/right.png') center center / 100% no-repeat;
+		}
+		.section .slide_control [class*="control"] {
+			display:none;
+		}
+		/* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
+		.section [id="slide01"]:checked ~ .slide_wrap .slide_list > li {
+			transform:translateX(0%);
+		}
+		.section [id="slide02"]:checked ~ .slide_wrap .slide_list > li {
+			transform:translateX(-100%);
+		}
+		.section [id="slide03"]:checked ~ .slide_wrap .slide_list > li {
+			transform:translateX(-200%);
+		}
+		/*  INPUT이 체크되면 변화값이 좌우 슬라이드 버튼을 담고 있는 div 까지 전달되는 스타일 */
+		.section [id="slide01"]:checked ~ .slide_wrap .control01 {
+			display:block;
+		}
+		.section [id="slide02"]:checked ~ .slide_wrap .control02 {
+			display:block;
+		}
+		.section [id="slide03"]:checked ~ .slide_wrap .control03 {
+			display:block;
+		}
+		.best_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 130px;
+			font-family: Montserrat;
+			font-size: 45px;
+		}
+		.recipe_title{
+			padding: 10px;
+			margin-left: 120px;
+			margin-top: 70px;
+			margin-bottom: 20px;
+			font-family: Montserrat;
+			font-size: 45px;
+		}
+		.sale_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 60px;
+			font-family: Montserrat;
+			font-size: 45px;
+		}
+		.change_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 60px;
+			font-family: Montserrat;
+			font-size: 45px;
+		}
+		/* 베스트 상품 */
+		.best_list{
+			display: inline-block;
+    	flex-direction: row;
+    	justify-content: space-between; 
+			margin-left: 7%;
+		}
+		.card{
+			background: #fff;
+    	text-decoration: none;
+    	color: #444; 
+    	position: relative; 
+   	  top: 0px;
+    	transition: 0.2s;
+			border-radius: 10px;
+			width: 230px;
+			height: 230px;
+		}
+		.card:hover{
+			top: -7px;
+			box-shadow: 0, 4px, 5px rgba(0, 0, 0, 3);
+		}
+		.best_item_info{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+		}
+		.more{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+			font-size: 15px;
+			float: right;
+			margin-top: 30px;
+		}
+		/* 레시피 */
+		.recipe_list{
+			display: inline-block;
+    	flex-direction: row;
+    	justify-content: space-between; 
+			margin-left: 100px;
+		}
+		.recipe_card{
+			background: #fff;
+    	text-decoration: none;
+    	color: #444; 
+    	position: relative; 
+   	  top: 0px;
+    	transition: 0.2s;
+			border-radius: 10px;
+			width: 560px;
+			height: 350px;
+			align-items: center;
+		}
+		.recipe_card:hover{
+			top: -7px;
+			box-shadow: 0, 4px, 5px rgba(0, 0, 0, 3);
+		}
+		.recipe_name{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+		}
+		.recipe_info{
+			font-family: Montserrat;
+			font-size: 16px;
+			color: rgb(77, 76, 76);
+		}
+		/* 세일 */
+		.sale_list{
+			display: inline-block;
+    	flex-direction: column;
+    	justify-content: space-between; 
+			margin-left: 8%;
+		}
+		.sale_card{
+			background: #fff;
+    	text-decoration: none;
+    	color: #444; 
+    	position: relative; 
+   	  top: 0px;
+    	transition: 0.2s;
+			border-radius: 10px;
+			width: 200px;
+			height: 200px;
+			border-radius: 100%;
+		}
+		.sale_card:hover{
+			top: -7px;
+			box-shadow: 0, 4px, 5px rgba(0, 0, 0, 3);
+		}
+		.sale_item_name{
+			text-decoration-line: none;
+			font-family: Montserrat;
+			color: black;
+			margin-top: 20px;
+		}
+		.sale_item_price{
+			text-decoration-line: none;
+			font-family: Montserrat;
+			color: red;
+			margin-bottom: 20px;
+		}
+		.more{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+			font-size: 15px;
+			float: right;
+			margin-top: 250px;
+			margin-right: 70px;
+		}
+		/* 물물교환 */
+		.band {
+			width: 90%;
+			max-width: 1240px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: minmax(10px,auto);
+			grid-gap: 0px;	
+			margin-bottom: 100px;
+		}
+		.change_card {
+			background: #fff;
+			text-decoration: none;
+			color: #444;
+			display: flex;
+			min-height: 100%;
+			flex-direction: column;
+			justify-content: space-between; 
+			position: relative; 
+			margin-top: 10px;
+			transition: 0.2s;
+		}
+		.change_card:hover {
+				top:-7px;
+		}
+		.change_thumb {
+			padding-bottom: 20px;
+			padding-top: 20px;
+			background-size: cover;
+			background-position-x: center center;
+			border-radius: 5px;
+			width: 200px;
+			height: 200px;
+		}
+		@media screen and (min-width:500px) {
+    .band{
+        grid-template-columns: 1fr 1fr ;
+    }
+    .items-1{
+        grid-column: 1/4;
+    }
+		}
+		@media screen and (min-width:850px){
+				.band{
+						grid-template-columns: repeat(4, 1fr);
+				}
+		}
+		article {
+    	flex: 1;
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: space-between;
+    	padding:5px;
+		}
+		article p {
+    	flex:1;
+		}
+		/* 푸터 */
+		#footer {
+        background: white;
+    }
+
+    .name {
+        font-family: Montserrat;
+        color: #000000;
+        font-size: 1.5rem;
+
+        font-style: normal;
+        font-weight: normal;
+        line-height: 125%;
+
+        text-align: center;
+        letter-spacing: 0.3em;
+
+        color: #000000;
+
+        position: absolute;
+        margin-left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .footer_lists {
+        display: flex;
+        width: 550px;
+        height: 95px;
+    }
+
+    .footer_lists li {
+        margin-right: 20px;
+        
+        font-family: Montserrat;
+        font-size: 1rem;
+        font-weight: bolder;
+        line-height: 22px;
+
+        display: flex;
+        letter-spacing: -0.015em;
+
+        transform: translate(-50%, -50%);
+        
+        margin-left: auto;
+        margin-top: 13%;
+        margin-right: 19%;
+    }
+
+    .footer_lists a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .email {
+        margin-left: 1%;
+        margin-top: 0%;
+    }
+
+    .line {
+        margin-top: -15px;
+        margin-bottom: 13px;
+    }
+	</style>
+</head>
+<body>
+	<!-- 헤더 -->
+
+	<!-- 마켓/커뮤니티 드롭다운 카테고리 -->
+	<div class="market_dropdown">
+		<button class="market_drop_btn">
+			원캔 마켓
+		</button>
+		<div class="market_category">
+			<a href="#">베스트 상품</a>
+			<a href="#">세일 상품</a>
+			<a href="#">채소/과일</a>
+			<a href="#">수산/해산</a>
+			<a href="#">정육/계란</a>
+			<a href="#">유제품</a>
+			<a href="#">음료/생수</a>
+			<a href="#">생활 필수품</a>_
+		</div>
+	</div>
+	<div class="com_dropdown">
+		<button class="com_drop_btn">
+			원캔 커뮤니티
+		</button>
+		<div class="com_category">
+			<a href="#">레시피</a>
+			<a href="#">물물교환</a>
+		</div>
+	</div>
+	<!-- 슬라이드 배너 -->
+	<div class="section">
+		<input type="radio" name="slide" id="slide01" checked>
+		<input type="radio" name="slide" id="slide02">
+		<input type="radio" name="slide" id="slide03">
+		<div class="slide_wrap">
+			<ul class="slide_list">
+				<li>
+					<a href="#">
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+			</ul>
+
+			<div class="slide_control">
+				<div class="control01">
+					<label for="slide03" class="left"></label>
+					<label for="slide02" class="right"></label>
+				</div>
+				<div class="control02">
+					<label for="slide01" class="left"></label>
+					<label for="slide03" class="right"></label>
+				</div>
+				<div class="control03">
+					<label for="slide02" class="left"></label>
+					<label for="slide01" class="right"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 베스트 상품 -->
+	<h2 class="best_title">Best</h2>
+	<div class="best_item">
+		<a href="#">
+			<div class="best_list">
+				<img class="card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="best_item_info">상품이름</h3>
+				<p class="best_item_info">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="best_list">
+				<img class="card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="best_item_info">상품이름</h3>
+				<p class="best_item_info">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="best_list">
+				<img class="card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="best_item_info">상품이름</h3>
+				<p class="best_item_info">가격</p>
+			</div>
+		</a>
+		<div class="best_list">
+			<img class="card" src="./img/food.jpg" alt="음식사진">
+			<h3 class="best_item_info">상품이름</h3>
+			<p class="best_item_info">가격</p>
+		</div>
+		<a href="#" class="more">더보기</a>
+	</div>
+	<!-- 레시피 -->
+	<h2 class="recipe_title">Recipe</h2>
+	<div class="recipe_item">
+		<a href="#">
+			<div class="recipe_list">
+				<img class="recipe_card" src="./img/recipe2.jpg" alt="레시피 이미지">
+				<h3 class="recipe_name">레시피 이름</h3>
+				<p class="recipe_info">레시피 간단 설명</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="recipe_list">
+				<img class="recipe_card" src="./img/recipe2.jpg" alt="레시피 이미지">
+				<h3 class="recipe_name">레시피 이름</h3>
+				<p class="recipe_info">레시피 간단 설명</p>
+			</div>
+		</a>
+	</div>
+	<!-- 세일 상품 -->
+	<h2 class="sale_title">Sale</h2>
+	<div class="sale_item">
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#" class="more">더보기</a>
+	</div>
+	<!-- 물물교환 -->
+	<h2 class="change_title">물물교환</h2>
+	<div class="band">
+    <div class="change_item">
+            <a href="#" class="change_card">
+							<img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>    
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a> 
+    </div>
+    <div class="change_item">
+          <a href="#" class="change_card">
+            <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+						<article>
+							<h1>물물교환 제품이름</h1>
+							<p>간단 설명</p>
+						</article>
+        	</a> 
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+							<img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+	</div>
+	<!-- 푸터 -->
+	<section id="FooterContainer">
+		<div class="FirstFooter">
+				<footer>
+						<h1 class="name">One can do it!</h1>
+						<nav>
+								<ul class="footer_lists">
+										<li><a href="#">이용약관</a></li>
+										<li><a href="#">이용안내</a></li>
+										<li><a href="#">입점문의</a></li>
+								</ul>
+								<hr class="line" style="border: soild 2px black;">
+								<p class="email">E-mail</p>
+						</nav>
+				</footer>
+		</div>
+</section>
+</body>
+</html>
