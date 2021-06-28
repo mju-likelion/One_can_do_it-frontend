@@ -1,0 +1,95 @@
+
+  
+
+
+
+
+.rcp_header {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 6.5%;
+    margin-top: 20%;
+    
+    
+}
+
+.btn {
+    text-align: end;
+    margin-right: 3.4%;
+    
+    
+}
+
+.container {
+    width:70%;   
+}
+
+.band {
+    width: 90%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px,auto);
+    grid-gap: 20px;
+    
+
+    
+}
+
+
+.card {
+    background: #fff;
+    text-decoration: none;
+    color: #444;
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: space-between; 
+    position: relative; 
+    top: 0px;
+    transition: 0.2s;
+
+}
+.card:hover {
+    top:-4px;
+}
+
+.thumb {
+    padding-bottom: 70%;
+    background-size: cover;
+    background-position-x: center center;
+    border-radius: 5px;
+
+}
+article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:5px;
+}
+article p {
+    flex:1;
+}
+article span {
+    color: gray;
+    font-size: small;
+}
+
+@media screen and (min-width:500px) {
+    .band{
+        grid-template-columns: 1fr 1fr ;
+    }
+    .items-1{
+        grid-column: 1/4;
+    }
+}
+@media screen and (min-width:850px){
+    .band{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.rcp_buttom {
+    margin-top: 20%;
+}

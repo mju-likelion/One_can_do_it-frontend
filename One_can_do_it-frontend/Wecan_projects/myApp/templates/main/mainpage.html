@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Main</title>
+	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+	<style>
+		.market_drop_btn{
+			background-color: white;
+			color: black;
+			padding: 20px;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 25px;
+			border: none;
+		}
+		.market_dropdown{
+			position: relative;
+			display: inline-block;
+		}
+		.market_category{
+			display: none;
+			position: absolute;
+			background-color: #E6E6E6;
+			width: 200px;
+			z-index: 1;
+		}
+		.market_category a{
+			color: black;
+			padding: 20px;
+			text-decoration: none;
+			display: block;
+		}
+		.market_category a:hover{
+			background-color: #E6E6E6;
+		}
+		.market_dropdown:hover .market_category{
+			display: block;
+		}
+		.market_dropdown:hover .market_drop_btn{
+			background-color: #E6E6E6;
+		}
+		.com_drop_btn{
+			background-color: white;
+			color: black;
+			padding: 20px;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 25px;
+			border: none;
+		}
+		.com_dropdown{
+			position: relative;
+			display: inline-block;
+		}
+		.com_category{
+			display: none;
+			position: absolute;
+			background-color: #E6E6E6;
+			width: 200px;
+			z-index: 1;
+		}
+		.com_category a{
+			color: black;
+			padding: 20px;
+			text-decoration: none;
+			display: block;
+		}
+		.com_category a:hover{
+			background-color: #E6E6E6;
+		}
+		.com_dropdown:hover .com_category{
+			display: block;
+		}
+		.com_dropdown:hover .com_drop_btn{
+			background-color: #E6E6E6;
+		}
+
+		/* 브라우저 마진과 패딩 리셋 */
+		* {
+			margin:0;
+			padding:0;
+		}
+		/* INPUT 가리기 */
+		.section [id*="slide"] {
+			display:none;
+		}
+		/* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+		.section .slide_wrap {
+			max-width:1680px;
+      max-height: 500px;
+			margin:0 auto;
+      top: 40px;
+			overflow:hidden;
+			position:relative;
+		}
+		.section .slide_list {
+			white-space:nowrap;
+			font-size:0;
+		}
+		.section .slide_list > li {
+			display:inline-block;
+			vertical-align:middle;
+			width:100%;
+			transition:all .5s;
+		}
+		.section .slide_list > li > a {
+			display:block;
+			position:relative;
+      width: 100%;
+		}
+		/* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+		.section .slide_control {
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:10;
+			width:100%;
+			height:100%;
+		}
+		.section .slide_control label {
+			position:absolute;
+			z-index:1;
+			top:50%;
+			transform:translateY(-50%);
+			padding:50px;
+			cursor:pointer;
+		}
+		.section .slide_control .left {
+			left:30px;
+			background:url('./img/left.png') center center / 100% no-repeat;
+		}
+		.section .slide_control .right {
+			right:30px;
+			background:url('./img/right.png') center center / 100% no-repeat;
+		}
+		.section .slide_control [class*="control"] {
+			display:none;
+		}
+		/* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
+		.section [id="slide01"]:checked ~ .slide_wrap .slide_list > li {
+			transform:translateX(0%);
+		}
+		.section [id="slide02"]:checked ~ .slide_wrap .slide_list > li {
+			transform:translateX(-100%);
+		}
+		.section [id="slide03"]:checked ~ .slide_wrap .slide_list > li {
+			transform:translateX(-200%);
+		}
+		/*  INPUT이 체크되면 변화값이 좌우 슬라이드 버튼을 담고 있는 div 까지 전달되는 스타일 */
+		.section [id="slide01"]:checked ~ .slide_wrap .control01 {
+			display:block;
+		}
+		.section [id="slide02"]:checked ~ .slide_wrap .control02 {
+			display:block;
+		}
+		.section [id="slide03"]:checked ~ .slide_wrap .control03 {
+			display:block;
+		}
+		.best_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 60px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.recipe_title{
+			padding: 10px;
+			margin-left: 120px;
+			margin-top: 30px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.sale_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 40px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.change_title{
+			padding: 30px;
+			margin-left: 100px;
+			margin-top: 40px;
+			font-family:'Courier New', Courier, monospace;
+		}
+		.thumbnail{
+			border-radius: 100%;
+			margin-bottom: 40px;
+		}
+		.recipe_img{
+			width: 600px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 마켓/커뮤니티 드롭다운 카테고리 -->
+	<div class="market_dropdown">
+		<button class="market_drop_btn">
+			원캔 마켓
+		</button>
+		<div class="market_category">
+			<a href="#">베스트 상품</a>
+			<a href="#">세일 상품</a>
+			<a href="#">채소/과일</a>
+			<a href="#">수산/해산</a>
+			<a href="#">정육/계란</a>
+			<a href="#">유제품</a>
+			<a href="#">음료/생수</a>
+			<a href="#">생활 필수품</a>_
+		</div>
+	</div>
+	<div class="com_dropdown">
+		<button class="com_drop_btn">
+			원캔 커뮤니티
+		</button>
+		<div class="com_category">
+			<a href="#">레시피</a>
+			<a href="#">물물교환</a>
+		</div>
+	</div>
+	<!-- 슬라이드 배너 -->
+	<div class="section">
+		<input type="radio" name="slide" id="slide01" checked>
+		<input type="radio" name="slide" id="slide02">
+		<input type="radio" name="slide" id="slide03">
+		<div class="slide_wrap">
+			<ul class="slide_list">
+				<li>
+					<a>
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="./img/slide03.jpeg">
+					</a>
+				</li>
+			</ul>
+
+			<div class="slide_control">
+				<div class="control01">
+					<label for="slide03" class="left"></label>
+					<label for="slide02" class="right"></label>
+				</div>
+				<div class="control02">
+					<label for="slide01" class="left"></label>
+					<label for="slide03" class="right"></label>
+				</div>
+				<div class="control03">
+					<label for="slide02" class="left"></label>
+					<label for="slide01" class="right"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 베스트 상품 -->
+	<h2 class="best_title">Best</h2>
+	<div class="row small-up-2 large-up-4">
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+		<div class="column">
+			<img class="thumbnail" src="./img/food.jpg">
+			<h3>상품이름</h3>
+			<p>가격</p>
+		</div>
+	</div>
+	<!-- 레시피 -->
+	<h2 class="recipe_title">Recipe</h2>
+	<div class="row small-up-2 large-up-4">
+		<div class="column">
+			<img class="recipe_img" src="./img/recipe.png">
+			<h4>레시피이름</h4>
+		</div>
+		<div class="column">
+			<img class="recipe_img" src="./img/recipe.png">
+			<h4>레시피이름</h4>
+		</div>
+	</div>
+	<!-- 세일 상품 -->
+	<h2 class="sale_title">Sale</h2>
+	<!-- 물물교환 -->
+	<h2 class="change_title">물물교환</h2>
+</body>
+</html>

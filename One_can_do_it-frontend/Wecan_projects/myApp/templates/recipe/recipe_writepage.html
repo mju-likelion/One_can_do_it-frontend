@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <title>레시피 작성페이지</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .barter_header {
+        height: 221.93px;
+        border: 1px solid red;
+    }
+
+    .title {
+        width: 349px;
+        height: 49px;
+        padding-left: 56px;
+    }
+
+    .contents {
+        width: 1032px;
+        height: 1244px;
+        margin: 0 auto;
+    }
+
+    form .title_input input {
+        width: 1027px;
+        height: 55px;
+        font-size: 24px;
+    }
+
+    input::placeholder {
+        font-weight: bold;
+        font-size: 24px;
+        font-family: 'Lato';
+    }
+
+    form .write_input .text_area {
+        width: 1030px;
+        height: 908px;
+    }
+
+    form .write_input textarea {
+        width: 100%;
+        height: 100%;
+        font-size: 24px;
+    }
+
+    textarea::placeholder {
+        font-weight: bold;
+        font-size: 24px;
+        font-family: 'Lato';
+    }
+
+    .file_upload {
+        margin-top: 30px;
+    }
+
+    .btn_list {
+        float: right;
+    }
+
+    .btn_list input {
+        width: 135px;
+        height: 64px;
+        background-color: #F5F5FA;
+        border-radius: 32px;
+        border: none;
+        box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFFFFF;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    /* 파일 커스텀 */
+    .filebox {
+        margin-top: 30px;
+    }
+
+    .filebox input[type="file"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .filebox label {
+        display: inline-block;
+        padding: .5em .75em;
+        color: #999;
+        font-size: inherit;
+        line-height: normal;
+        vertical-align: middle;
+        cursor: pointer;
+        border: none;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+
+    }
+
+    /* named upload */
+    .filebox .upload_name {
+        display: inline;
+        text-align: left;
+        /* label의 패딩값과 일치 */
+        line-height: normal;
+        vertical-align: middle;
+        background-color: #fff;
+        border: none;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        -webkit-appearance: none;
+        /* 네이티브 외형 감추기 */
+        -moz-appearance: none;
+        appearance: none;
+        font-size: 20px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+    }
+
+    .filebox .file_img {
+        width: 45px;
+        height: 42px;
+    }
+
+    #footer {
+        background: white;
+    }
+
+    .name {
+        font-family: Montserrat;
+        color: #000000;
+        font-size: 1.5rem;
+
+        font-style: normal;
+        font-weight: normal;
+        line-height: 125%;
+
+        text-align: center;
+        letter-spacing: 0.3em;
+
+        color: #000000;
+
+        position: absolute;
+        margin-left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .lists {
+        display: flex;
+        width: 550px;
+        height: 95px;
+    }
+
+    .lists li {
+        margin-right: 20px;
+
+        font-family: Montserrat;
+        font-size: 1rem;
+        font-weight: bolder;
+        line-height: 22px;
+
+        display: flex;
+        letter-spacing: -0.015em;
+
+        transform: translate(-50%, -50%);
+
+        margin-left: auto;
+        margin-top: 13%;
+        margin-right: 19%;
+    }
+
+    .lists a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .email {
+        margin-left: 1%;
+        margin-top: 0%;
+    }
+
+    .line {
+        margin-top: -15px;
+        margin-bottom: 13px;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="barter_header">
+                <p>one can do it!</p>
+            </div>
+        </header>
+        <main>
+            <div class="title">
+                <h1>레시피 게시물 작성</h1>
+            </div>
+            <div class="contents">
+                <form action="" method="POST">
+                    <div class="title_input">
+                        <h2>제 목</h2>
+                        <input type="text" name="title_info" placeholder="제목을 입력해 주세요.">
+                    </div>
+                    <div class="write_input">
+                        <h2>내 용</h2>
+                        <div class="text_area">
+                            <textarea name="content_info" id="" cols="60" rows="30" placeholder="내용을 입력해 주세요."
+                                style="resize: none;"></textarea>
+                        </div>
+                    </div>
+                    <div class="filebox">
+                        <input class="upload_name" value="파 일 선 택" disabled="disabled">
+                        <label for="ex_filename"><img src="./img/fileimg.png" alt="파일업로" class="file_img"></label>
+                        <input type="file" id="ex_filename" class="upload_hidden">
+                    </div>
+
+                    <div class="btn_list">
+                        <input type="button" name="btn_success" value="완료">
+                        <input type="button" name="btn_delete" value="삭제">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <h1 class="name">One can do it!</h1>
+            <nav>
+                <ul class="lists">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">입점문의</a></li>
+                </ul>
+                <hr class="line" style="border: soild 2px black;">
+                <p class="email">E-mail</p>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>
