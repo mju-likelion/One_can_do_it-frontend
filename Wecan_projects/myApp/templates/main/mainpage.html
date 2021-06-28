@@ -4,7 +4,6 @@
 	<meta charset='utf-8'>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title>Main</title>
-	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 	<style>
 		.market_drop_btn{
 			background-color: white;
@@ -161,35 +160,203 @@
 		.best_title{
 			padding: 30px;
 			margin-left: 100px;
-			margin-top: 100px;
+			margin-top: 130px;
 			font-family: Montserrat;
+			font-size: 45px;
 		}
 		.recipe_title{
 			padding: 10px;
 			margin-left: 120px;
-			margin-top: 30px;
+			margin-top: 70px;
+			margin-bottom: 20px;
 			font-family: Montserrat;
+			font-size: 45px;
 		}
 		.sale_title{
 			padding: 30px;
 			margin-left: 100px;
-			margin-top: 40px;
+			margin-top: 60px;
 			font-family: Montserrat;
+			font-size: 45px;
 		}
 		.change_title{
 			padding: 30px;
 			margin-left: 100px;
-			margin-top: 40px;
+			margin-top: 60px;
 			font-family: Montserrat;
+			font-size: 45px;
 		}
-		.thumbnail{
+		/* 베스트 상품 */
+		.best_list{
+			display: inline-block;
+    	flex-direction: row;
+    	justify-content: space-between; 
+			margin-left: 7%;
+		}
+		.card{
+			background: #fff;
+    	text-decoration: none;
+    	color: #444; 
+    	position: relative; 
+   	  top: 0px;
+    	transition: 0.2s;
+			border-radius: 10px;
+			width: 230px;
+			height: 230px;
+		}
+		.card:hover{
+			top: -7px;
+			box-shadow: 0, 4px, 5px rgba(0, 0, 0, 3);
+		}
+		.best_item_info{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+		}
+		.more{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+			font-size: 15px;
+			float: right;
+			margin-top: 30px;
+		}
+		/* 레시피 */
+		.recipe_list{
+			display: inline-block;
+    	flex-direction: row;
+    	justify-content: space-between; 
+			margin-left: 100px;
+		}
+		.recipe_card{
+			background: #fff;
+    	text-decoration: none;
+    	color: #444; 
+    	position: relative; 
+   	  top: 0px;
+    	transition: 0.2s;
+			border-radius: 10px;
+			width: 560px;
+			height: 350px;
+			align-items: center;
+		}
+		.recipe_card:hover{
+			top: -7px;
+			box-shadow: 0, 4px, 5px rgba(0, 0, 0, 3);
+		}
+		.recipe_name{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+		}
+		.recipe_info{
+			font-family: Montserrat;
+			font-size: 16px;
+			color: rgb(77, 76, 76);
+		}
+		/* 세일 */
+		.sale_list{
+			display: inline-block;
+    	flex-direction: column;
+    	justify-content: space-between; 
+			margin-left: 8%;
+		}
+		.sale_card{
+			background: #fff;
+    	text-decoration: none;
+    	color: #444; 
+    	position: relative; 
+   	  top: 0px;
+    	transition: 0.2s;
+			border-radius: 10px;
+			width: 200px;
+			height: 200px;
 			border-radius: 100%;
-			margin-bottom: 40px;
 		}
-		.recipe_img{
-			width: 600px;
-			height: 300px;
+		.sale_card:hover{
+			top: -7px;
+			box-shadow: 0, 4px, 5px rgba(0, 0, 0, 3);
 		}
+		.sale_item_name{
+			text-decoration-line: none;
+			font-family: Montserrat;
+			color: black;
+			margin-top: 20px;
+		}
+		.sale_item_price{
+			text-decoration-line: none;
+			font-family: Montserrat;
+			color: red;
+			margin-bottom: 20px;
+		}
+		.more{
+			text-decoration: none;
+			font-family: Montserrat;
+			color: black;
+			font-size: 15px;
+			float: right;
+			margin-top: 250px;
+			margin-right: 70px;
+		}
+		/* 물물교환 */
+		.band {
+			width: 90%;
+			max-width: 1240px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: minmax(10px,auto);
+			grid-gap: 0px;	
+			margin-bottom: 100px;
+		}
+		.change_card {
+			background: #fff;
+			text-decoration: none;
+			color: #444;
+			display: flex;
+			min-height: 100%;
+			flex-direction: column;
+			justify-content: space-between; 
+			position: relative; 
+			margin-top: 10px;
+			transition: 0.2s;
+		}
+		.change_card:hover {
+				top:-7px;
+		}
+		.change_thumb {
+			padding-bottom: 20px;
+			padding-top: 20px;
+			background-size: cover;
+			background-position-x: center center;
+			border-radius: 5px;
+			width: 200px;
+			height: 200px;
+		}
+		@media screen and (min-width:500px) {
+    .band{
+        grid-template-columns: 1fr 1fr ;
+    }
+    .items-1{
+        grid-column: 1/4;
+    }
+		}
+		@media screen and (min-width:850px){
+				.band{
+						grid-template-columns: repeat(4, 1fr);
+				}
+		}
+		article {
+    	flex: 1;
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: space-between;
+    	padding:5px;
+		}
+		article p {
+    	flex:1;
+		}
+		/* 푸터 */
 		#footer {
         background: white;
     }
@@ -290,17 +457,17 @@
 		<div class="slide_wrap">
 			<ul class="slide_list">
 				<li>
-					<a>
+					<a href="#">
 						<img src="./img/slide03.jpeg">
 					</a>
 				</li>
 				<li>
-					<a>
+					<a href="#">
 						<img src="./img/slide03.jpeg">
 					</a>
 				</li>
 				<li>
-					<a>
+					<a href="#">
 						<img src="./img/slide03.jpeg">
 					</a>
 				</li>
@@ -324,44 +491,162 @@
 	</div>
 	<!-- 베스트 상품 -->
 	<h2 class="best_title">Best</h2>
-	<div class="row small-up-2 large-up-4">
-		<div class="column">
-			<img class="thumbnail" src="./img/food.jpg">
-			<h3>상품이름</h3>
-			<p>가격</p>
+	<div class="best_item">
+		<a href="#">
+			<div class="best_list">
+				<img class="card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="best_item_info">상품이름</h3>
+				<p class="best_item_info">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="best_list">
+				<img class="card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="best_item_info">상품이름</h3>
+				<p class="best_item_info">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="best_list">
+				<img class="card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="best_item_info">상품이름</h3>
+				<p class="best_item_info">가격</p>
+			</div>
+		</a>
+		<div class="best_list">
+			<img class="card" src="./img/food.jpg" alt="음식사진">
+			<h3 class="best_item_info">상품이름</h3>
+			<p class="best_item_info">가격</p>
 		</div>
-		<div class="column">
-			<img class="thumbnail" src="./img/food.jpg">
-			<h3>상품이름</h3>
-			<p>가격</p>
-		</div>
-		<div class="column">
-			<img class="thumbnail" src="./img/food.jpg">
-			<h3>상품이름</h3>
-			<p>가격</p>
-		</div>
-		<div class="column">
-			<img class="thumbnail" src="./img/food.jpg">
-			<h3>상품이름</h3>
-			<p>가격</p>
-		</div>
+		<a href="#" class="more">더보기</a>
 	</div>
 	<!-- 레시피 -->
 	<h2 class="recipe_title">Recipe</h2>
-	<div class="row small-up-2 large-up-4">
-		<div class="column">
-			<img class="recipe_img" src="./img/recipe.png">
-			<h4>레시피이름</h4>
-		</div>
-		<div class="column">
-			<img class="recipe_img" src="./img/recipe.png">
-			<h4>레시피이름</h4>
-		</div>
+	<div class="recipe_item">
+		<a href="#">
+			<div class="recipe_list">
+				<img class="recipe_card" src="./img/recipe2.jpg" alt="레시피 이미지">
+				<h3 class="recipe_name">레시피 이름</h3>
+				<p class="recipe_info">레시피 간단 설명</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="recipe_list">
+				<img class="recipe_card" src="./img/recipe2.jpg" alt="레시피 이미지">
+				<h3 class="recipe_name">레시피 이름</h3>
+				<p class="recipe_info">레시피 간단 설명</p>
+			</div>
+		</a>
 	</div>
 	<!-- 세일 상품 -->
 	<h2 class="sale_title">Sale</h2>
+	<div class="sale_item">
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="sale_list">
+				<img class="sale_card" src="./img/food.jpg" alt="음식사진">
+				<h3 class="sale_item_name">상품이름</h3>
+				<p class="sale_item_price">가격</p>
+			</div>
+		</a>
+		<a href="#" class="more">더보기</a>
+	</div>
 	<!-- 물물교환 -->
 	<h2 class="change_title">물물교환</h2>
+	<div class="band">
+    <div class="change_item">
+            <a href="#" class="change_card">
+							<img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>    
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a> 
+    </div>
+    <div class="change_item">
+          <a href="#" class="change_card">
+            <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+						<article>
+							<h1>물물교환 제품이름</h1>
+							<p>간단 설명</p>
+						</article>
+        	</a> 
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+							<img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+    <div class="change_item">
+            <a href="#" class="change_card">
+              <img class="change_thumb" src="./img/change.jpg" alt="물물교환사진">
+							<article>
+								<h1>물물교환 제품이름</h1>
+                <p>간단 설명</p>
+							</article>
+            </a>  
+    </div>
+	</div>
 	<!-- 푸터 -->
 	<section id="FooterContainer">
 		<div class="FirstFooter">
