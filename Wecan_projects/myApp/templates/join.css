@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+#signUpContainer {
+    border: none;
+}
+.contents {
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 650px;
+}
+.join {
+    margin: 0 auto;
+    font-size: 30px;
+}
+.contents .input_list {
+    margin-top: 50px;
+}
+.contents .input_list input {
+    width: 400px;
+    height: 30px;
+}
+.contents .input_list div {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.contents .input_list .email_form {
+    margin-bottom: 0;
+}
+.contents .input_list .id_form {
+    display: flex;
+}
+/* 아이디 */
+.contents .input_list button {
+    margin-left: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contents .input_list button:hover {
+    background-color: lightblue;
+}
+/* 비밀번호 */
